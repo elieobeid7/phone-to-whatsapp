@@ -7,55 +7,24 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
     <link rel="manifest" href="/site.webmanifest" />
     <title>Phone to Whatsapp</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <script>
-      function isNumeric(str) {
-        if (typeof str != "string") return false; // we only process strings!
-        return (
-          !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-          !isNaN(parseFloat(str))
-        ); // ...and ensure strings of whitespace fail
-      }
-
-      function formatPhoneNumber(phone) {
-        if (phone.startsWith("+")) {
-          return phone;
-        }
-        if (phone.startsWith("00")) {
-          return "+" + phone.slice(2);
-        }
-        if (phone.startsWith("0")) {
-          return "+971" + phone.slice(1);
-        }
-        return 0;
-      }
-
-      if (navigator.clipboard !== undefined) {
-        (async () => {
-          try {
-            console.log("start");
-            const text = await navigator.clipboard.readText();
-
-            let phone = text.trim();
-            console.log(`phone is: ${phone}`);
-            if (isNumeric(phone)) {
-              console.log(`numeric phone: ${phone}`);
-              phone = formatPhoneNumber(phone);
-              if (phone !== 0) {
-                console.log(`valid phone: ${phone}`);
-                const url = `https://wa.me/${phone}`;
-                console.log(url);
-                window.open(url);
-              }
-            }
-          } catch (err) {
-            console.error("Could not read from clipboard", err);
-          }
-        })();
-      }
-    </script>
+    <form id="countrycode-form">
+      <label for="countrycode">
+        <i class="fas fa-calculator"></i> Your current country code (without
+        leading "00" or "+"):
+      </label>
+      <input type="number" id="countrycode" name="countrycode" />
+      <button type="submit"><i class="fas fa-arrow-right"></i> Submit</button>
+    </form>
+    <script src="index.js"></script>
   </body>
 </html>
