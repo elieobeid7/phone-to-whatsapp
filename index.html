@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <title>Phone to Whatsapp</title>
+  </head>
+  <body>
+    <script>
+      function isNumeric(str) {
+        if (typeof str != "string") return false; // we only process strings!
+        return (
+          !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+          !isNaN(parseFloat(str))
+        ); // ...and ensure strings of whitespace fail
+      }
+
+      function formatPhoneNumber(phone) {
+        if (phone.startsWith("+")) {
+          return phone;
+        }
+        if (phone.startsWith("00")) {
+          return "+" + phone.slice(2);
+        }
+        if (phone.startsWith("0")) {
+          return "+971" + phone.slice(1);
+        }
+        return 0;
+      }
+
+      if (navigator.clipboard !== undefined) {
+        (async () => {
+          try {
+            console.log("start");
+            const text = await navigator.clipboard.readText();
+
+            let phone = text.trim();
+            console.log(`phone is: ${phone}`);
+            if (isNumeric(phone)) {
+              console.log(`numeric phone: ${phone}`);
+              phone = formatPhoneNumber(phone);
+              if (phone !== 0) {
+                console.log(`valid phone: ${phone}`);
+                const url = `https://wa.me/${phone}`;
+                console.log(url);
+                window.open(url);
+              }
+            }
+          } catch (err) {
+            console.error("Could not read from clipboard", err);
+          }
+        })();
+      }
+    </script>
+  </body>
+</html>
