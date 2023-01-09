@@ -1,5 +1,5 @@
 function isNumeric(str) {
-  if (typeof str != "string") return false; // we only process strings!
+  if (typeof str != "string") return false; // only process strings
   return (
     !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
     !isNaN(parseFloat(str))
@@ -51,20 +51,13 @@ if (navigator.clipboard !== undefined) {
   if (country_code) {
     (async () => {
       try {
-        console.log("start");
         const text = await navigator.clipboard.readText();
 
         let phone = text.trim();
-        console.log(`phone is: ${phone}`);
         if (isNumeric(phone)) {
-          console.log(`numeric phone: ${phone}`);
           phone = formatPhoneNumber(phone, country_code);
-          if (phone !== 0) {
-            console.log(`valid phone: ${phone}`);
-            const url = `https://wa.me/${phone}`;
-            console.log(url);
-            window.open(url);
-          }
+          const url = `https://wa.me/${phone}`;
+          window.open(url);
         }
       } catch (err) {
         console.error("Could not read from clipboard", err);
