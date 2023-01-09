@@ -1,18 +1,3 @@
-if ("serviceWorker" in navigator) {
-  // Register a service worker hosted at the root of the
-  // site using the default scope.
-  navigator.serviceWorker.register("/service-worker.js").then(
-    function (registration) {
-      console.log("Service worker registration succeeded:", registration);
-    },
-    /*catch*/ function (error) {
-      console.log("Service worker registration failed:", error);
-    }
-  );
-} else {
-  console.log("Service workers are not supported.");
-}
-
 function isNumeric(str) {
   if (typeof str != "string") return false; // we only process strings!
   return (
@@ -24,6 +9,12 @@ function isNumeric(str) {
 function formatPhoneNumber(phone, country_code) {
   if (phone.startsWith("+")) {
     return phone;
+  }
+  if (phone.startsWith("00")) {
+    return "+" + phone.slice(2);
+  }
+  if (phone.startsWith("0")) {
+    phone = phone.slice(1);
   }
   return "+" + country_code + phone;
 }
