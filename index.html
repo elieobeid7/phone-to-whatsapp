@@ -12,11 +12,6 @@
 
     <link rel="manifest" href="manifest.json" />
     <title>Phone to Whatsapp</title>
-    <script
-      src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
-      integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo="
-      crossorigin="anonymous"
-    ></script>
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 
     <link rel="stylesheet" href="styles.css" />
@@ -24,11 +19,9 @@
     <!-- update the version number as needed -->
   </head>
   <body>
-    <span class="install-app-btn-container">
-      <a id="installApp" class="install-app-btn" href="javascript:void(0);"
-        >Install</a
-      >
-    </span>
+    <div class="install-app-btn-container">
+      <span id="installApp" class="install-app-btn"></span>
+    </div>
 
     <form id="countrycode-form">
       <label class="countrycode-label" for="countrycode">

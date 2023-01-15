@@ -30,7 +30,6 @@ let arr = await db.countrycodes.toArray();
 let country_code;
 if (arr && arr.length) {
   country_code = arr[0].countrycode;
-  console.log(country_code);
   document.getElementById("countrycode").value = country_code;
 }
 if (navigator.clipboard !== undefined) {
