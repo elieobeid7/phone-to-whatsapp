@@ -1,12 +1,16 @@
 {
+  "functions": {
+    "source": "functions",
+    "predeploy": [
+      "npm run build"
+    ]
+  },
   "hosting": {
     "public": ".",
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**",
-      "**/.git/**",
-      ".prettierignore"
+      "**/node_modules/**"
     ],
     "rewrites": [
       {

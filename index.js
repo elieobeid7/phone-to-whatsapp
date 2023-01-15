@@ -19,35 +19,21 @@ function formatPhoneNumber(phone, country_code) {
   return "+" + country_code + phone;
 }
 
-function forbidNonNumeric(event) {
-  // Get the character that was entered
-  const char = event.key;
-
-  // Check if the character is not a digit (0-9)
-  if (!/[0-9]/.test(char)) {
-    // If it is not a digit, prevent the character from being entered
-    event.preventDefault();
-  }
-}
-const form = document.getElementById("countrycode-form");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  let countrycode = document.getElementById("countrycode").value;
-  countrycode = countrycode.replace(/\D/g, "");
-  countrycode = parseInt(countrycode);
-
-  localStorage.setItem("countrycode", countrycode);
+const db = new Dexie("phone_countrycodes");
+db.version(1).stores({
+  countrycodes: `countrycode`,
 });
-
-const inputField = document.getElementById("countrycode");
-document.getElementById("countrycode").value =
-  localStorage.getItem("countrycode");
-
-inputField.addEventListener("input", forbidNonNumeric);
-
+db.open().catch(function (err) {
+  console.error(err.stack || err);
+});
+let arr = await db.countrycodes.toArray();
+let country_code;
+if (arr && arr.length) {
+  country_code = arr[0].countrycode;
+  console.log(country_code);
+  document.getElementById("countrycode").value = country_code;
+}
 if (navigator.clipboard !== undefined) {
-  const country_code = localStorage.getItem("countrycode");
   if (country_code) {
     (async () => {
       try {
@@ -65,3 +51,23 @@ if (navigator.clipboard !== undefined) {
     })();
   }
 }
+const form = document.getElementById("countrycode-form");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  let countrycode = document.getElementById("countrycode").value;
+  countrycode = countrycode.replace(/\D/g, "");
+  countrycode = parseInt(countrycode);
+  db.countrycodes.clear().then(function (result) {
+    db.countrycodes
+      .put({ countrycode: countrycode })
+      .then(function (result) {
+        console.log(`res: ${result}`);
+      })
+      .catch(function (error) {
+        // This code is called if reject() was called in the Promise constructor, or
+        // if an exception was thrown in either constructor or previous then() call.
+        console.log(`error: ${error}`);
+      });
+  });
+});
