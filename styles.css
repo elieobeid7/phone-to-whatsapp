@@ -103,10 +103,11 @@ input[type=number] {
   visibility: hidden;
 }
 .github{
-  width: 2vw;
+  width: 2rem;
   margin-left: 10px;
   background-color: transparent;
-  fill: white 
+  fill: white;
+  height: auto;
 }
 .code {
   color:white;
