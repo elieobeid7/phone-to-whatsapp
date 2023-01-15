@@ -17,8 +17,6 @@ let deferredPrompt;
 let installSource;
 
 window.addEventListener("beforeinstallprompt", (e) => {
-  document.querySelector(".install-app-btn-container").style.visibility =
-    "visible";
   deferredPrompt = e;
   installSource = "nativeInstallCard";
 
@@ -27,20 +25,6 @@ window.addEventListener("beforeinstallprompt", (e) => {
       deferredPrompt = null;
     }
   });
-});
-
-const installApp = document.getElementById("installApp");
-
-installApp.addEventListener("click", async () => {
-  installSource = "customInstallationButton";
-
-  if (deferredPrompt !== null) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") {
-      deferredPrompt = null;
-    }
-  }
 });
 
 window.addEventListener("appinstalled", () => {

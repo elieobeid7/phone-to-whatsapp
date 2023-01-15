@@ -49,7 +49,7 @@ button, .save {
   transition: opacity 0.4s 0.3s;
 }
 
-html, body {
+html {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to bottom right, #111e25 0%, #111 100%);
@@ -102,3 +102,31 @@ input[type=number] {
 .install-app-btn-container {
   visibility: hidden;
 }
+.github{
+  width: 2vw;
+  margin-left: 10px;
+  background-color: transparent;
+  fill: white 
+}
+.code {
+  color:white;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+a.code {
+  text-decoration: none;
+}
+
+
+
