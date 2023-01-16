@@ -91,6 +91,7 @@ input[type=number] {
   font-weight: 300;
   letter-spacing: 0.125rem;
   transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
+  text-align: center;
 }
 
 .add-button {
