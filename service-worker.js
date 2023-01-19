@@ -6,7 +6,7 @@ let CACHE_FILES = [
   "index.html",
   "manifest.json",
   "index.js",
-  "styles/css",
+  "styles.css",
   "assets/android-icon-36x36.png",
   "assets/android-icon-48x48.png",
   "assets/android-icon-72x72.png",

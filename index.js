@@ -7,8 +7,8 @@ function isNumeric(str) {
 }
 
 function formatPhoneNumber(phone, country_code) {
-  phone = phone.replaceAll(/\s/g, "").replace("-", "");
-
+  phone = phone.replaceAll(/\s/g, "").replaceAll("-", "");
+  console.log(phone);
   if (phone.startsWith("+")) {
     return phone;
   }
@@ -36,22 +36,23 @@ if (arr && arr.length) {
 }
 if (navigator.clipboard !== undefined) {
   if (country_code) {
-    (async () => {
-      try {
-        const text = await navigator.clipboard.readText();
-
+    navigator.clipboard
+      .readText()
+      .then((text) => {
         let phone = text.trim();
+        phone = formatPhoneNumber(phone, country_code);
         if (isNumeric(phone)) {
-          phone = formatPhoneNumber(phone, country_code);
+          console.log(phone);
           const url = `https://wa.me/${phone}`;
           window.open(url);
         }
-      } catch (err) {
-        console.error("Could not read from clipboard", err);
-      }
-    })();
+      })
+      .catch((err) => {
+        console.error("Failed to read clipboard: ", err);
+      });
   }
 }
+
 const form = document.getElementById("countrycode-form");
 
 form.addEventListener("submit", (event) => {
