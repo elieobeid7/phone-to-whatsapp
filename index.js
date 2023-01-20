@@ -1,5 +1,9 @@
 function isNumeric(str) {
   if (typeof str != "string") return false; // only process strings
+
+  if (str.length < 5) {
+    return false;
+  }
   return (
     !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
     !isNaN(parseFloat(str))
