@@ -7,7 +7,7 @@ function isNumeric(str) {
 }
 
 function formatPhoneNumber(phone, country_code) {
-  phone = phone.replaceAll(/\s/g, "").replaceAll("-", "");
+  phone = phone.replaceAll(/\s/g, "").replaceAll(/[^+\d]+/g, "");
   if (phone.startsWith("+")) {
     return phone;
   }
