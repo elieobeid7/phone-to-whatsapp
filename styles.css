@@ -87,6 +87,7 @@ input[type=number] {
   transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
   display: none;
 
+
 }
 
 
@@ -126,16 +127,16 @@ input[type=number] {
   color:white;
   margin-left: 10px;
   margin-right: 10px;
-
 }
 
 footer {
-  position: fixed;
+  position:fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
   margin-bottom: 2vh;
+
 }
 
 a.code {
@@ -144,3 +145,76 @@ a.code {
 
 
 
+
+#popup{
+    display: none;
+}
+.popup-container{
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 19;
+}
+.popup{
+    background-color: #ffffff;
+    padding: 20px 30px;
+    width: 50%;
+    border-radius: 15px;
+}
+.close-popup{
+    display: flex;
+    justify-content: flex-end;
+}
+.close-popup a{
+    background-color: #bb1515;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.popup-btn{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #bb1515;
+    border: 2px solid ;
+    padding: 5px 15px;
+    border-radius: 20px;
+    color: #fff;
+    margin: 10px 0px;
+    transition: .2s all ease-in;
+}
+.popup-btn:hover{
+    background-color: #bb1515;
+    color: #fff;
+}
+
+
+.help-button {
+  height: 6em;
+  width: 6em;
+  font-size: 11px;
+  border-radius: 50%;
+  border: 0 none;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  
+  top: 92vh;
+  float: right;
+}
+.help-button:hover,
+.help-button:focus,
+.help-button:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  outline: 0;
+}
+
+.popup a {
+  color: #bb1515;
+}

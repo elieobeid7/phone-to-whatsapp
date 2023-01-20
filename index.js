@@ -24,6 +24,20 @@ function formatPhoneNumber(phone, country_code) {
   return "+" + country_code + phone;
 }
 
+const help = document.getElementById("help-button");
+const popup = document.getElementById("popup");
+const closeBtn = document.getElementById("closeBtn");
+
+help.addEventListener("click", () => {
+  popup.style.display = "block";
+});
+closeBtn.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+popup.addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
 const db = new Dexie("phone_countrycodes");
 db.version(1).stores({
   countrycodes: `countrycode`,
@@ -66,10 +80,13 @@ form.addEventListener("submit", (event) => {
     db.countrycodes
       .put({ countrycode: countrycode })
       .then(function () {
+        document.getElementById("help-button").style.display = "none";
+
         document.getElementById("confirmation").style.display = "block";
 
         setTimeout(function () {
           document.getElementById("confirmation").style.display = "none";
+          document.getElementById("help-button").style.display = "block";
         }, 3000);
       })
       .catch(function (error) {

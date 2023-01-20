@@ -19,10 +19,50 @@
     <!-- update the version number as needed -->
   </head>
   <body>
+    <div id="popup">
+      <div class="popup-container">
+        <div class="popup">
+          <div class="close-popup" id="closeBtn"><a href="#">X</a></div>
+          <h2>How to use the app</h2>
+          <p>
+            This app is created to help you chat with people directly on
+            Whatsapp without having to add them to your contact.
+          </p>
+          <p>
+            You can copy any number, and this app will read the clipboard and
+            redirect you to the Whatsapp. Tested on Android and Google Chrome
+            only.
+          </p>
+
+          <ol>
+            <li>
+              Allow the app to
+              <a href="https://imgur.com/0IUSBCM" target="_blank"
+                >read the clipboard and allow redirections</a
+              >
+              from Chrome browser, by clicking on the lock icon, on the right
+              side of the url bar,
+            </li>
+            <li>
+              <a href="https://imgur.com/a/ylZadEe" target="_blank"
+                >Install the app</a
+              >
+              on your Phone
+            </li>
+            <li>Enter your country code and click save</li>
+            <li>Close the app</li>
+            <li>Copy a phone number</li>
+            <li>Open the app, you'll be redirected to Whatsapp</li>
+          </ol>
+          <a href="#" class="popup-btn">Close</a>
+        </div>
+      </div>
+    </div>
     <form id="countrycode-form">
       <label class="countrycode-label" for="countrycode">
         Your country code
       </label>
+
       <input type="number" id="countrycode" name="countrycode" />
       <button type="submit" class="save">Save</button>
       <div id="confirmation">Country code has been saved</div>
@@ -35,6 +75,7 @@
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 496 512"
           class="github"
+          preserveAspectRatio="xMinYMid"
         >
           <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path
@@ -42,6 +83,7 @@
           />
         </svg>
       </a>
+      <button id="help-button" class="help-button">Help</button>
     </footer>
     <script src="addtohomescreen.js"></script>
     <script type="module" src="index.js"></script>
