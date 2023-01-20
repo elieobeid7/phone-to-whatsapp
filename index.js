@@ -1,7 +1,7 @@
 function isNumeric(str) {
   if (typeof str != "string") return false; // only process strings
 
-  if (str.length < 7) {
+  if (str.length < 8) {
     return false;
   }
   return (
