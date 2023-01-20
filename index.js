@@ -65,7 +65,13 @@ form.addEventListener("submit", (event) => {
   db.countrycodes.clear().then(function (result) {
     db.countrycodes
       .put({ countrycode: countrycode })
-      .then(function () {})
+      .then(function () {
+        document.getElementById("confirmation").style.display = "block";
+
+        setTimeout(function () {
+          document.getElementById("confirmation").style.display = "none";
+        }, 3000);
+      })
       .catch(function (error) {
         // This code is called if reject() was called in the Promise constructor, or
         // if an exception was thrown in either constructor or previous then() call.

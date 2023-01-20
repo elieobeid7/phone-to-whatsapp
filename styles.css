@@ -75,7 +75,19 @@ input[type=number] {
 
 
 
+#confirmation{
+   position:relative; 
+   margin-top: 60vh;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.125rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
+  display: none;
 
+}
 
 
 .countrycode-label {
