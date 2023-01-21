@@ -78,6 +78,16 @@ const form = document.getElementById("countrycode-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   let countrycode = document.getElementById("countrycode").value;
+
+  if (countrycode > 6) {
+    let phone = countrycode;
+    phone = formatPhoneNumber(phone, country_code);
+    if (isNumeric(phone)) {
+      const url = `https://wa.me/${phone}`;
+      window.open(url);
+    }
+  }
+
   countrycode = countrycode.replace(/\D/g, "");
   countrycode = parseInt(countrycode);
   db.countrycodes.clear().then(function (result) {
