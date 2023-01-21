@@ -86,6 +86,7 @@ form.addEventListener("submit", (event) => {
       const url = `https://wa.me/${phone}`;
       window.open(url);
     }
+    return;
   }
 
   countrycode = countrycode.replace(/\D/g, "");
