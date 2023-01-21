@@ -79,7 +79,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   let countrycode = document.getElementById("countrycode").value;
 
-  if (countrycode > 6) {
+  if (countrycode.length > 6) {
     let phone = countrycode;
     phone = formatPhoneNumber(phone, country_code);
     if (isNumeric(phone)) {
