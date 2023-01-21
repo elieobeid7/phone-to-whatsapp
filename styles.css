@@ -155,13 +155,12 @@ a.code {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: sticky;
     z-index: 19;
 }
 .popup{
     background-color: #ffffff;
     padding: 20px 30px;
-    width: 50%;
     border-radius: 15px;
 }
 .close-popup{
@@ -215,6 +214,6 @@ a.code {
   outline: 0;
 }
 
-.popup ol li a {
+.help a {
   color: #bb1515;
 }
