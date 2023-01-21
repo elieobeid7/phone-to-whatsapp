@@ -53,19 +53,23 @@ if (arr && arr.length) {
 }
 if (navigator.clipboard !== undefined) {
   if (country_code) {
-    navigator.clipboard
-      .readText()
-      .then((text) => {
-        let phone = text.trim();
-        phone = formatPhoneNumber(phone, country_code);
-        if (isNumeric(phone)) {
-          const url = `https://wa.me/${phone}`;
-          window.open(url);
-        }
-      })
-      .catch((err) => {
-        console.error("Failed to read clipboard: ", err);
-      });
+    try {
+      navigator.clipboard
+        .readText()
+        .then((text) => {
+          let phone = text.trim();
+          phone = formatPhoneNumber(phone, country_code);
+          if (isNumeric(phone)) {
+            const url = `https://wa.me/${phone}`;
+            window.open(url);
+          }
+        })
+        .catch((err) => {
+          console.error("Failed to read clipboard: ", err);
+        });
+    } catch (e) {
+      console.log(`This browser doesn't support reading from clipboard ${e}`);
+    }
   }
 }
 
