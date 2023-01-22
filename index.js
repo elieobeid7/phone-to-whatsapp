@@ -10,6 +10,8 @@ function isNumeric(str) {
   ); // ...and ensure strings of whitespace fail
 }
 
+let can_read_clipboard = true;
+
 function formatPhoneNumber(phone, country_code) {
   phone = phone.replace(/[^\d+]/g, "");
   if (phone.startsWith("+")) {
@@ -69,6 +71,8 @@ if (navigator.clipboard !== undefined) {
         });
     } catch (e) {
       console.log(`This browser doesn't support reading from clipboard ${e}`);
+      can_read_clipboard = false;
+      document.getElementById("warning").style.display = "block";
     }
   }
 }
@@ -96,12 +100,18 @@ form.addEventListener("submit", (event) => {
       .put({ countrycode: countrycode })
       .then(function () {
         document.getElementById("help-button").style.display = "none";
+        if (!can_read_clipboard) {
+          document.getElementById("warning").style.display = "none";
+        }
 
         document.getElementById("confirmation").style.display = "block";
 
         setTimeout(function () {
           document.getElementById("confirmation").style.display = "none";
           document.getElementById("help-button").style.display = "block";
+          if (!can_read_clipboard) {
+            document.getElementById("warning").style.display = "block";
+          }
         }, 3000);
       })
       .catch(function (error) {

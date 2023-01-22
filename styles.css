@@ -1,15 +1,15 @@
-input, button {
+input,
+button {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -300%);
   display: block;
   width: 70vw;
   transition: all 0.5s cubic-bezier(0.4, 0.25, 0.8, 0.3);
 }
+
 input {
   padding: 0.25rem 0;
-  border: 0;
   border: 1px solid #bb1515;
   outline: 0;
   background: transparent;
@@ -17,12 +17,15 @@ input {
   font-size: 3rem;
   line-height: 4rem;
   letter-spacing: 0.125rem;
-  transition: all 0.5s cubic-bezier(0.4, 0.25, 0.8, 0.3);
+  transform: translate(-50%, -300%);
 }
+
 input::selection {
   background: rgba(187, 21, 21, 0.25);
 }
-button, .save {
+
+button,
+.save {
   padding: 0.25em 0;
   border: 0;
   outline: 0;
@@ -33,20 +36,10 @@ button, .save {
   letter-spacing: 0.0625rem;
   box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.25);
   text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-
-.save {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  width: 70vw;
-  padding: 0.25rem 0;
-  line-height: 3.6rem;
   text-align: center;
   cursor: pointer;
   transition: opacity 0.4s 0.3s;
+  transform: translate(-50%, -100%)
 }
 
 html {
@@ -55,11 +48,8 @@ html {
   background-image: linear-gradient(to bottom right, #111e25 0%, #111 100%);
   font-family: 'Lato', sans-serif;
 }
-form {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -74,11 +64,9 @@ input[type=number] {
   appearance: textfield;
 }
 
-
-
-#confirmation{
-   position:relative; 
-   margin-top: 60vh;
+#confirmation,
+.countrycode-label,
+#warning {
   text-transform: uppercase;
   color: #fff;
   font-size: 1.125rem;
@@ -86,11 +74,20 @@ input[type=number] {
   letter-spacing: 0.125rem;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
-  display: none;
-
-
 }
 
+#confirmation,
+#warning,
+#popup {
+  display: none;
+}
+
+#confirmation,
+#warning {
+  position: relative;
+  margin-top: 60vh;
+
+}
 
 .countrycode-label {
   position: fixed;
@@ -99,101 +96,81 @@ input[type=number] {
   transform: translate(-50%, -300%);
   width: 70vw;
   padding: 3.125rem 0 1.5rem;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 1.125rem;
-  font-weight: 300;
-  letter-spacing: 0.125rem;
-  transition: all 0.4s cubic-bezier(0.4, 0.25, 0.8, 0.3) 0.05s;
-  text-align: center;
 }
 
-.add-button {
-  position: absolute;
-  top: 1px;
-  left: 1px;
-}
-
-.install-app-btn-container {
-  visibility: hidden;
-}
-.github{
+.github {
   width: 2rem;
   margin-left: 10px;
   background-color: transparent;
   fill: white;
   height: auto;
 }
+
 .code {
-  color:white;
+  color: white;
   margin-left: 10px;
   margin-right: 10px;
 }
 
 footer {
-  position:fixed;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   text-align: center;
   margin-bottom: 2vh;
-
 }
 
 a.code {
   text-decoration: none;
 }
 
-
-
-
-#popup{
-    display: none;
-}
-.popup-container{
-  
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    z-index: 19;
-}
-.popup{
-    background-color: #ffffff;
-    padding: 20px 30px;
-    border-radius: 15px;
-}
-.close-popup{
-    display: flex;
-    justify-content: flex-end;
-}
-.close-popup a{
-    background-color: #bb1515;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 10px;
-    display: inline-block;
+.popup-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  z-index: 19;
 }
 
-.popup-btn{
-    display: inline-block;
-    text-decoration: none;
-    background-color: #bb1515;
-    border: 2px solid ;
-    padding: 5px 15px;
-    border-radius: 20px;
-    color: #fff;
-    margin: 10px 0px;
-    transition: .2s all ease-in;
-}
-.popup-btn:hover{
-    background-color: #bb1515;
-    color: #fff;
+.popup {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  border-radius: 15px;
 }
 
+.close-popup {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-popup a {
+  background-color: #bb1515;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.popup-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #bb1515;
+  border: 2px solid;
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: #fff;
+  margin: 10px 0px;
+  transition: .2s all ease-in;
+}
+
+.popup-btn:hover {
+  background-color: #bb1515;
+  color: #fff;
+}
 
 .help-button {
   height: 6em;
@@ -204,10 +181,10 @@ a.code {
   color: #fff;
   cursor: pointer;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  
   top: 92vh;
   float: right;
 }
+
 .help-button:hover,
 .help-button:focus,
 .help-button:active {
