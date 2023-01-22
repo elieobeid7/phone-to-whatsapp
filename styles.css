@@ -187,3 +187,27 @@ button,
   background-color: #bb1515;
   color: #fff;
 }
+
+@media (max-height:735px) {
+  .code {
+    display: none;
+  }
+
+  .help-button {
+    top: 95vh;
+  }
+
+  input,
+  button {
+    top: 75vh;
+  }
+
+  input {
+    padding: 0;
+  }
+
+  .countrycode-label {
+    top: 30%;
+    padding: 0;
+  }
+}

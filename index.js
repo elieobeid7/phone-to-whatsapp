@@ -11,6 +11,10 @@ function isNumeric(str) {
 }
 
 let can_read_clipboard = true;
+let is_landscape = false;
+if (window.matchMedia("(orientation: landscape)").matches) {
+  is_landscape = true;
+}
 
 function formatPhoneNumber(phone, country_code) {
   phone = phone.replace(/[^\d+]/g, "");
@@ -100,7 +104,9 @@ form.addEventListener("submit", (event) => {
       .put({ countrycode: countrycode })
       .then(function () {
         document.getElementById("help-button").style.display = "none";
-        if (!can_read_clipboard) {
+        document.getElementById("save").style.display = "none";
+
+        if (!can_read_clipboard && !is_landscape) {
           document.getElementById("warning").style.display = "none";
         }
 
@@ -109,7 +115,9 @@ form.addEventListener("submit", (event) => {
         setTimeout(function () {
           document.getElementById("confirmation").style.display = "none";
           document.getElementById("help-button").style.display = "block";
-          if (!can_read_clipboard) {
+          document.getElementById("save").style.display = "block";
+
+          if (!can_read_clipboard && !is_landscape) {
             document.getElementById("warning").style.display = "block";
           }
         }, 3000);
