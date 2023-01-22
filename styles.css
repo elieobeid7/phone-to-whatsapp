@@ -29,8 +29,6 @@ button,
   padding: 0.25em 0;
   border: 0;
   outline: 0;
-  background: #bb1515;
-  color: rgba(255, 255, 255, 0.85);
   font-size: 2rem;
   line-height: 3.6rem;
   letter-spacing: 0.0625rem;
@@ -144,8 +142,6 @@ a.code {
 }
 
 .close-popup a {
-  background-color: #bb1515;
-  color: #fff;
   padding: 5px 10px;
   font-weight: bold;
   text-decoration: none;
@@ -156,19 +152,13 @@ a.code {
 .popup-btn {
   display: inline-block;
   text-decoration: none;
-  background-color: #bb1515;
   border: 2px solid;
   padding: 5px 15px;
   border-radius: 20px;
-  color: #fff;
   margin: 10px 0px;
   transition: .2s all ease-in;
 }
 
-.popup-btn:hover {
-  background-color: #bb1515;
-  color: #fff;
-}
 
 .help-button {
   height: 6em;
@@ -192,4 +182,13 @@ a.code {
 
 .popup-link {
   color: #bb1515;
+}
+
+.close-popup a,
+.popup-btn:hover,
+.popup-btn,
+button,
+.save {
+  background-color: #bb1515;
+  color: #fff;
 }
