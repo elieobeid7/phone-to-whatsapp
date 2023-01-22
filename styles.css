@@ -3,7 +3,6 @@ button {
   position: fixed;
   top: 50%;
   left: 50%;
-  display: block;
   width: 70vw;
   transition: all 0.5s cubic-bezier(0.4, 0.25, 0.8, 0.3);
 }
@@ -32,10 +31,8 @@ button,
   font-size: 2rem;
   line-height: 3.6rem;
   letter-spacing: 0.0625rem;
-  box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.25);
   text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(255, 255, 255, 0.2);
   text-align: center;
-  cursor: pointer;
   transition: opacity 0.4s 0.3s;
   transform: translate(-50%, -100%)
 }
@@ -168,8 +165,7 @@ a.code {
   color: #fff;
   cursor: pointer;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  top: 92vh;
-  float: right;
+  top: 70vh;
 }
 
 .help-button:hover,
