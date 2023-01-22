@@ -77,18 +77,19 @@ input[type=number] {
 
 #confirmation,
 #warning {
-  position: relative;
-  margin-top: 60vh;
-
+  top: 70%;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -300%);
 }
 
 .countrycode-label {
   position: fixed;
-  top: calc(50% - 4rem);
+  top: 25%;
   left: 50%;
   transform: translate(-50%, -300%);
   width: 70vw;
-  padding: 3.125rem 0 1.5rem;
+
 }
 
 .github {
@@ -165,7 +166,7 @@ a.code {
   color: #fff;
   cursor: pointer;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  top: 80vh;
+  top: 80%;
 }
 
 .help-button:hover,
@@ -188,7 +189,7 @@ button,
   color: #fff;
 }
 
-@media (max-height:735px) {
+@media (max-height:600px) {
   .code {
     display: none;
   }
