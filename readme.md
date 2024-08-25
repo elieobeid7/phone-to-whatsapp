@@ -1,4 +1,4 @@
-To use it go https://phone-to-wa.web.app
+To use it go https://openwa.app/
 
 and open it on a phone browser. Add it to home screen for easier use.
 
